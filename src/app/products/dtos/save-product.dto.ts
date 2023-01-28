@@ -1,9 +1,32 @@
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+
 export class SaveProductDto {
-  id: string;
+  @IsNotEmpty()
+  @IsString()
   name: string;
+
+  @IsNotEmpty()
+  @IsString()
   description: string;
+
+  @IsNotEmpty()
+  @IsNumber()
   price: number;
+
+  @IsNotEmpty()
+  @IsString()
   image: string;
-  createdAt: Date;
+
+  @IsNotEmpty()
+  @IsNumber()
+  quantity: number;
+
+  @IsOptional()
   isAvailable: boolean;
+
+  @IsOptional()
+  createdAt: Date;
+
+  @IsOptional()
+  id?: string;
 }
