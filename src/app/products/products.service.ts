@@ -14,4 +14,8 @@ export class ProductsService {
   async save(data: SaveProductDto): Promise<ProductEntity> {
     return this.productsRepository.save(this.productsRepository.create(data));
   }
+
+  async findAll(): Promise<ProductEntity[]> {
+    return this.productsRepository.find();
+  }
 }
