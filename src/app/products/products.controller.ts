@@ -50,6 +50,8 @@ export class ProductsController {
       updateProduct,
     });
 
-    return this.findById(id);
+    const updatedProduct = await this.findById(id);
+
+    return updatedProduct;
   }
 }
