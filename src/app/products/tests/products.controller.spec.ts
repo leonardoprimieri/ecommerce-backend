@@ -39,7 +39,6 @@ describe('ProductsController', () => {
       isAvailable: true,
       name: 'name',
       price: 1,
-      quantity: 1,
     };
 
     const productEntityMock = {

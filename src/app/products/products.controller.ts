@@ -5,10 +5,12 @@ import {
   Get,
   Param,
   ParseUUIDPipe,
+  Patch,
   Post,
   UsePipes,
 } from '@nestjs/common';
 import { SaveProductDto } from './dtos/save-product.dto';
+import { UpdateProductDto } from './dtos/update-product.dto';
 import { ProductsService } from './products.service';
 
 @Controller('products')
@@ -17,23 +19,37 @@ export class ProductsController {
 
   @Post()
   async create(@Body() body: SaveProductDto) {
-    return this.productService.create(body);
+    return await this.productService.create(body);
   }
 
   @Get()
   async findAll() {
-    return this.productService.findAll();
+    return await this.productService.findAll();
   }
 
   @Get(':id')
   @UsePipes(ParseUUIDPipe)
   async findById(@Param('id') id: string) {
-    return this.productService.findById(id);
+    return await this.productService.findById(id);
   }
 
   @Delete(':id')
   @UsePipes(ParseUUIDPipe)
   async delete(@Param('id') id: string) {
-    return this.productService.delete(id);
+    return await this.productService.delete(id);
+  }
+
+  @Patch(':id/update')
+  async update(
+    @Param('id')
+    id: string,
+    @Body() updateProduct: UpdateProductDto,
+  ) {
+    await this.productService.update({
+      id,
+      updateProduct,
+    });
+
+    return this.findById(id);
   }
 }

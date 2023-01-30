@@ -23,15 +23,15 @@ export class ProductEntity {
   @Column()
   image: string;
 
+  @Column({ default: true })
+  isAvailable: boolean;
+
   @CreateDateColumn({
     name: 'created_at',
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
   })
   createdAt: Date;
-
-  @Column({ default: true })
-  isAvailable: boolean;
 
   @DeleteDateColumn({ name: 'deleted_at', nullable: true })
   deletedAt?: Date;
