@@ -11,7 +11,7 @@ export class ProductsService {
     private readonly productsRepository: Repository<ProductEntity>,
   ) {}
 
-  async save(data: SaveProductDto): Promise<ProductEntity> {
+  async create(data: SaveProductDto): Promise<ProductEntity> {
     return this.productsRepository.save(this.productsRepository.create(data));
   }
 

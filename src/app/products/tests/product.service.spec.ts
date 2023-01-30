@@ -56,7 +56,7 @@ describe('ProductService', () => {
       .spyOn(productRepository, 'save')
       .mockResolvedValueOnce(productEntityMock);
 
-    const result = await productService.save(data);
+    const result = await productService.create(data);
 
     expect(result).toEqual(productEntityMock);
     expect(productRepository.create).toBeCalledTimes(1);

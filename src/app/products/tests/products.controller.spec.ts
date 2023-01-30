@@ -15,7 +15,7 @@ describe('ProductsController', () => {
         {
           provide: ProductsService,
           useValue: {
-            save: jest.fn(),
+            create: jest.fn(),
           },
         },
       ],
@@ -46,11 +46,13 @@ describe('ProductsController', () => {
       ...data,
     } as ProductEntity;
 
-    jest.spyOn(productService, 'save').mockResolvedValueOnce(productEntityMock);
+    jest
+      .spyOn(productService, 'create')
+      .mockResolvedValueOnce(productEntityMock);
 
-    const result = await productService.save(data);
+    const result = await productService.create(data);
 
     expect(result).toEqual(productEntityMock);
-    expect(productService.save).toBeCalledTimes(1);
+    expect(productService.create).toBeCalledTimes(1);
   });
 });
