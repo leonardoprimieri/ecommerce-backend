@@ -20,8 +20,8 @@ export class ProductEntity {
   @Column()
   price: number;
 
-  @Column()
-  image: string;
+  @Column({ name: 'image_url' })
+  imageUrl: string;
 
   @Column({ default: true })
   isAvailable: boolean;

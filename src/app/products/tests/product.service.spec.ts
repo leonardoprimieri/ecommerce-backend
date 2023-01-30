@@ -37,7 +37,7 @@ describe('ProductService', () => {
       createdAt: new Date(),
       description: 'description',
       id: 'id',
-      image: 'image',
+      imageUrl: 'image',
       isAvailable: true,
       name: 'name',
       price: 1,

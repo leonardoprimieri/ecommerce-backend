@@ -15,7 +15,7 @@ export class SaveProductDto {
 
   @IsNotEmpty()
   @IsString()
-  image: string;
+  imageUrl: string;
 
   @IsOptional()
   isAvailable: boolean;

@@ -14,7 +14,6 @@ import { ProductsModule } from './app/products/products.module';
       password: process.env.DB_PASSWORD,
       username: process.env.DB_USERNAME,
       host: process.env.DB_HOST,
-      synchronize: true,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
     }),
   ],

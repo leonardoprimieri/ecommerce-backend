@@ -15,7 +15,7 @@ export class UpdateProductDto {
 
   @IsNotEmpty()
   @IsString()
-  image?: string;
+  imageUrl?: string;
 
   @IsOptional()
   isAvailable?: boolean;
