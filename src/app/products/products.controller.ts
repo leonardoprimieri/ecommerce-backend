@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  UsePipes,
+} from '@nestjs/common';
 import { SaveProductDto } from './dtos/save-product.dto';
 import { ProductsService } from './products.service';
 
@@ -17,7 +26,14 @@ export class ProductsController {
   }
 
   @Get(':id')
+  @UsePipes(ParseUUIDPipe)
   async findById(@Param('id') id: string) {
     return this.productService.findById(id);
+  }
+
+  @Delete(':id')
+  @UsePipes(ParseUUIDPipe)
+  async delete(@Param('id') id: string) {
+    return this.productService.delete(id);
   }
 }

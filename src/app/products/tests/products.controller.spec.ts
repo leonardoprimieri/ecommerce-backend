@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { SaveProductDto } from '../dtos/save-product.dto';
-import { ProductEntity } from '../product.entity';
+import { ProductEntity } from '../entities/product.entity';
 import { ProductsController } from '../products.controller';
 import { ProductsService } from '../products.service';
 
